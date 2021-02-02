@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <iostream>
+
+using namespace std;
+
+
+int sc_memoryInit(int * ram){
+  ram = new int[100];
+  for(int i=0; i<100; i++){
+    ram[i]=0;
+    {
+}
+
+
+int main(){
+  int* ram;
+  int sc_memoryInit(ram);
+  cout<<ram[25];
+  return 0;
+}
