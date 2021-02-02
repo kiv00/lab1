@@ -11,21 +11,22 @@ int sc_memoryInit(int * ram){
   return 0;
 }
 
-int sc_memorySet(int &adress, int value){
-  // if(<0 || value>99){
-  //  cout<<"выход за границы"<<endl;
-  //  return 0;
-  //}
- adress=value;
+int sc_memorySet(int &address, int value){
+  if(address==0){//////////////////////////////////////////////////
+     address = value;
+     return 0;
+   }
+   cout<<"выход за границы"<<endl;
+   return 0;
 }
 
-int sc_memoryGet(int &adress, int * value){
-  //if
-  //
-  //return0
-  //
-  //value=adress;
-  //return value;
+int sc_memoryGet(int address, int  &value){
+  if(address==0){//////////////////////////////////////////////////
+     value = address;
+     return 0;
+   }
+   cout<<"выход за границы"<<endl;
+   return 0;
 }
 
 int sc_memorySave(char * filename){
@@ -58,8 +59,12 @@ int sc_commandDecode(int value, int * command, int * operand){
 
 int main(){
   int* ram = new int[100];
+  FILE *b2f;
+  int value=0;
+  b2f=fopen(b2f,"ab");
   sc_memoryInit(ram);
   sc_memorySet(ram[25], 10);
-  cout<<ram[25]<<endl;
+  sc_memoryGet(ram[25],value);
+  cout<<value<<endl;
   return 1;
 }
